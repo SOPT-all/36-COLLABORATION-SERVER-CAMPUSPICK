@@ -17,4 +17,11 @@ public class ClubService {
     public List<ClubDto> getAllClubs(){
         return clubRepository.findAll().stream().map(ClubDto::new).toList();
     }
+
+    public List<ClubDto> getClubsByLikesDesc(){
+        return clubRepository.findAllSortedByLikes()
+                .stream()
+                .map(ClubDto::new)
+                .toList();
+    }
 }

@@ -16,8 +16,14 @@ public class ClubController {
     private final ClubService clubService;
 
     @GetMapping("/club")
-    public ResponseEntity<List<ClubDto>> getClub(){
-        List<ClubDto> club = clubService.getAllClubs();
+    public ResponseEntity<List<ClubDto>> getClubsByLikes(){
+        List<ClubDto> club = clubService.getClubsByLikesDesc();
         return ResponseEntity.ok(club);
+    }
+
+    @GetMapping("/club/all")
+    public ResponseEntity<List<ClubDto>> getClub(){
+        List<ClubDto> clubAll = clubService.getAllClubs();
+        return ResponseEntity.ok(clubAll);
     }
 }
