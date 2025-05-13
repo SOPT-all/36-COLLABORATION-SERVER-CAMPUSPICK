@@ -14,12 +14,8 @@ import java.util.List;
 public class ClubService {
     private final ClubRepository clubRepository;
 
-    public List<ClubDto> getAllClubs(){
-        return clubRepository.findAll().stream().map(ClubDto::new).toList();
-    }
-
     public List<ClubDto> getClubsByLikesDesc(){
-        return clubRepository.findAllSortedByLikes()
+        return clubRepository.findTop5ByOrderByLikeCountDesc()
                 .stream()
                 .map(ClubDto::new)
                 .toList();

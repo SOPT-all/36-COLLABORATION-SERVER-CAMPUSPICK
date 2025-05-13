@@ -9,8 +9,5 @@ import java.util.List;
 
 @Repository
 public interface ClubRepository extends JpaRepository<Club, Long> {
-
-    @Query("SELECT c FROM Club c ORDER BY c.likeCount DESC")
-    List<Club> findAllSortedByLikes();
-
+    List<Club> findTop5ByOrderByLikeCountDesc();
 }

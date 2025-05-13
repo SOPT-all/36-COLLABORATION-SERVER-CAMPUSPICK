@@ -20,10 +20,4 @@ public class ClubController {
         List<ClubDto> club = clubService.getClubsByLikesDesc();
         return ResponseEntity.ok(club);
     }
-
-    @GetMapping("/club/all")
-    public ResponseEntity<List<ClubDto>> getClub(){
-        List<ClubDto> clubAll = clubService.getAllClubs();
-        return ResponseEntity.ok(clubAll);
-    }
 }

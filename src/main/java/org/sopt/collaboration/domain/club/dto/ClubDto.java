@@ -22,13 +22,8 @@ public class ClubDto {
 
     // DTO 변환용 생성자
     public ClubDto(Club club) {
-        this.id = club.getId();
         this.clubName = club.getName();
         this.clubIntroduce = club.getIntroduce();
         this.clubImage = club.getImage();
-        this.category = club.getCategory();
-        this.region = club.getRegion();
-        this.clubDay = club.getClubDay();
-        this.likeCount = club.getLikeCount();
     }
 }
