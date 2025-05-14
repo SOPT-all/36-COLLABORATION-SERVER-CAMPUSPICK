@@ -11,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -38,4 +39,13 @@ public class ActivityRecruit {
 	@CreatedDate
 	@Column(name = "created_date", nullable = false)
 	private LocalDate createdDate;
+
+	@Builder
+	private ActivityRecruit(String title, int viewCount, int commentCount, String image, LocalDate createdDate) {
+		this.title = title;
+		this.viewCount = viewCount;
+		this.commentCount = commentCount;
+		this.image = image;
+		this.createdDate = createdDate;
+	}
 }
