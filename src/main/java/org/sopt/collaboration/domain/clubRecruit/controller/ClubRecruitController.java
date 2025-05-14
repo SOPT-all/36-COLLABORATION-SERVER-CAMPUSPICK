@@ -14,7 +14,7 @@ import java.util.List;
 public class ClubRecruitController {
     private final ClubRecruitService clubRecruitService;
 
-    @GetMapping("/club/popular")
+    @GetMapping("/clubs/popular")
     public ResponseEntity<List<ClubRecruitDto>> getClubRecruitByViewCount() {
         List<ClubRecruitDto> clubRecruit = clubRecruitService.getClubRecruitByViewCount();
         return ResponseEntity.ok(clubRecruit);
