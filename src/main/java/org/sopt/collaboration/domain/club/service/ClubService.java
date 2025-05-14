@@ -15,7 +15,7 @@ public class ClubService {
     private final ClubRepository clubRepository;
 
     public List<ClubDto> getClubsByLikesDesc(){
-        return clubRepository.findTop5ByOrderByLikeCountDesc()
+        return clubRepository.findTop3ByOrderByLikeCountDesc()
                 .stream()
                 .map(ClubDto::new)
                 .toList();
