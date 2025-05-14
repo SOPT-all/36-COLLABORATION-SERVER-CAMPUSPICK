@@ -22,6 +22,7 @@ public class ClubRecruitDto {
 
     public ClubRecruitDto(ClubRecruit clubRecruit) {
         this.title = clubRecruit.getTitle();
+        this.recruitDeadline = clubRecruit.getRecruitDeadline();
         this.viewCount = clubRecruit.getViewCount();
         this.commentCount = clubRecruit.getCommentCount();
         this.image = clubRecruit.getImage();
