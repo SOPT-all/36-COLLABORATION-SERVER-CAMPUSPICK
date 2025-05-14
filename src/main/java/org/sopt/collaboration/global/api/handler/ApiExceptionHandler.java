@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 @RestControllerAdvice
 public class ApiExceptionHandler {
@@ -22,6 +23,15 @@ public class ApiExceptionHandler {
 	@ExceptionHandler(HttpRequestMethodNotSupportedException.class)
 	public ResponseEntity<ErrorResponse> handleHttpRequestMethodNotSupportedException() {
 		ExceptionMessage exceptionMessage =ExceptionMessage.BAD_REQUEST;
+
+		return ResponseEntity
+			.status(exceptionMessage.getHttpStatus())
+			.body(ErrorResponse.of(exceptionMessage));
+	}
+
+	@ExceptionHandler(NoResourceFoundException.class)
+	public ResponseEntity<ErrorResponse> handleNoResourceFoundException() {
+		ExceptionMessage exceptionMessage = ExceptionMessage.INVALID_REQUEST_URL;
 
 		return ResponseEntity
 			.status(exceptionMessage.getHttpStatus())

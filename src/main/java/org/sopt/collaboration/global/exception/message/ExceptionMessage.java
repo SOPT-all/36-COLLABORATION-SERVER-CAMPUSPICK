@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum ExceptionMessage {
 	BAD_REQUEST(HttpStatus.METHOD_NOT_ALLOWED, "FAILURE", "잘못된 HTTP method 요청입니다."),
-	INVALID_TAG_NAME(HttpStatus.BAD_REQUEST, "FAILURE", "잘못된 검색조건입니다."),
+	INVALID_REQUEST_URL(HttpStatus.BAD_REQUEST, "FAILURE", "잘못된 요청경로입니다."),
 	INTERNAL_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "ERROR", "서버 내부 오류입니다.");
 
 	private final HttpStatus httpStatus;
